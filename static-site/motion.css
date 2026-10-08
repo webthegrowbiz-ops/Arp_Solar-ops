@@ -53,3 +53,13 @@ html.solar-motion .hero-photo-wrap.solar-reveal.is-visible{transform:translate3d
 @media(max-width:860px){.hero-grid-overlay::before{width:300px;top:-110px;right:-100px}.interior-banner::before{width:350px;right:-185px}}
 @media(hover:none),(pointer:coarse){.service-card:hover,.value-card:hover,.process-card:hover,.gallery-tile:hover,.mini-contact:hover,.btn:hover{transform:none}.hero-photo-wrap:hover .hero-photo{transform:none}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto!important}.motion-progress{display:none!important}*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}html.solar-motion .solar-reveal{opacity:1!important;transform:none!important;filter:none!important}.floating-label,.sun-art,.graphic-sun{translate:none!important}}
+
+/* Keep hover elevation and gentle tilt active after an element finishes revealing. */
+@media(hover:hover) and (pointer:fine){
+html.solar-motion .solar-reveal.is-visible.service-card:hover,
+html.solar-motion .solar-reveal.is-visible.value-card:hover,
+html.solar-motion .solar-reveal.is-visible.gallery-tile:hover,
+html.solar-motion .solar-reveal.is-visible.process-card:hover,
+html.solar-motion .solar-reveal.is-visible.mini-contact:hover{transform:translateY(-6px)}
+html.solar-motion .solar-reveal.is-visible.tilt-card:hover{transform:perspective(900px) translateY(-6px) rotateX(var(--tilt-x,0deg)) rotateY(var(--tilt-y,0deg))}
+}
