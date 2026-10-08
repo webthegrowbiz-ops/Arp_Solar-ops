@@ -1,0 +1,55 @@
+/* ARP Solar Energy | shared motion and visual polish */
+:root{--solar-ease:cubic-bezier(.22,1,.36,1)}
+.motion-progress{position:fixed;z-index:100;top:0;left:0;right:0;height:3px;pointer-events:none;transform-origin:left;transform:scaleX(0);background:linear-gradient(90deg,#f3a100,#ffd25f,#e55031,#214ca4)}
+.main-header{transition:box-shadow .3s ease,background-color .3s ease}
+.main-header.is-scrolled{background:rgba(255,255,255,.97);box-shadow:0 9px 32px #07193622}
+.brand img{transition:transform .5s var(--solar-ease)}
+.brand:hover img{transform:rotate(-3deg) scale(1.045)}
+.btn{position:relative;overflow:hidden;isolation:isolate;transition:transform .32s var(--solar-ease),box-shadow .32s ease,filter .3s ease}
+.btn::before{content:"";position:absolute;inset:0;background:linear-gradient(110deg,transparent 26%,#ffffff82 49%,transparent 73%);transform:translateX(-140%);transition:transform .72s var(--solar-ease);pointer-events:none;z-index:-1}
+.btn:hover::before{transform:translateX(140%)}
+.btn:hover{transform:translateY(-4px);box-shadow:0 17px 32px #05132d25}
+.btn:active{transform:translateY(-1px) scale(.99)}
+a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-visible,summary:focus-visible{outline:3px solid #eaa21d;outline-offset:4px}
+.hero-grid-overlay{pointer-events:none}
+.hero-grid-overlay::before{content:"";position:absolute;top:-190px;right:10%;width:460px;aspect-ratio:1;border-radius:50%;background:radial-gradient(circle,#ffc04230,#ffc04213 38%,transparent 72%);animation:solar-glow 12s ease-in-out infinite alternate}
+.hero-grid-overlay::after{content:"";position:absolute;inset:0;background-image:radial-gradient(#ffffff55 .8px,transparent 1px);background-size:27px 27px;opacity:.17;mask-image:linear-gradient(90deg,transparent 10%,#000 80%)}
+.sun-dot{animation:solar-pulse 3.8s ease-in-out infinite}
+.hero-photo{transition:filter 1s var(--solar-ease),transform 1s var(--solar-ease)}
+.hero-photo-wrap:hover .hero-photo{filter:saturate(1.13) brightness(1.04);transform:scale(1.018)}
+.floating-label{animation:solar-float 6s ease-in-out infinite}
+.sun-art,.graphic-sun{animation:solar-breathe 9s ease-in-out infinite}
+.interior-banner{isolation:isolate}
+.interior-banner::before{content:"";position:absolute;z-index:-1;top:-190px;right:-110px;width:min(60vw,570px);aspect-ratio:1;border-radius:50%;border:1px solid #ffbd3425;box-shadow:0 0 0 55px #ffc02f08,0 0 0 115px #ffc02f06;animation:solar-glow 13s ease-in-out infinite alternate;pointer-events:none}
+.interior-banner .banner-accent{animation:solar-float 8s ease-in-out infinite}
+.service-card,.value-card,.process-card,.benefit,.gallery-tile,.mini-contact,.guide-side-card,.planner-card,.form-card{transition:transform .45s var(--solar-ease),box-shadow .45s ease,border-color .35s ease}
+.service-card:hover,.value-card:hover,.process-card:hover,.gallery-tile:hover,.mini-contact:hover{box-shadow:0 24px 50px #07193621;transform:translateY(-6px)}
+.service-card:hover,.value-card:hover{border-color:#efb13f88}
+.service-icon,.benefit-icon,.process-circle{transition:transform .5s var(--solar-ease)}
+.service-card:hover .service-icon,.benefit:hover .benefit-icon{transform:rotate(-8deg) scale(1.09)}
+.process-card:hover .process-circle{transform:translateY(-4px) rotate(5deg)}
+.gallery-tile{overflow:hidden}
+.gallery-tile img{transition:transform .9s var(--solar-ease),filter .65s ease}
+.gallery-tile:hover img{transform:scale(1.055);filter:saturate(1.12)}
+.in-image{transition:filter .7s ease,transform .7s var(--solar-ease)}
+.in-image:hover{filter:saturate(1.08);transform:translateY(-3px)}
+.faq-items details{transition:border-color .25s ease,box-shadow .35s ease}
+.faq-items details[open]{border-color:#eba92e94;box-shadow:0 12px 28px #07193611}
+.faq-items details[open] p{animation:solar-faq .38s ease both}
+.form-card:focus-within,.planner-card:focus-within{box-shadow:0 26px 55px #0002}
+.footer-links a,.growbiz-credit{transition:color .25s ease,transform .25s ease}
+.footer-links a:hover{transform:translateX(3px)}
+.growbiz-credit:hover{transform:translateY(-2px)}
+html.solar-motion .solar-reveal{opacity:0;transform:translate3d(0,26px,0);filter:blur(3px);transition:opacity .82s var(--solar-ease),transform .82s var(--solar-ease),filter .78s ease;transition-delay:var(--reveal-delay,0ms)}
+html.solar-motion .solar-reveal.is-visible{opacity:1;transform:translate3d(0,0,0);filter:blur(0)}
+html.solar-motion .hero-photo-wrap.solar-reveal{transform:translate3d(20px,0,0) scale(.98)}
+html.solar-motion .hero-photo-wrap.solar-reveal.is-visible{transform:translate3d(0,0,0) scale(1)}
+@keyframes solar-glow{from{transform:translate3d(-24px,8px,0) scale(.92)}to{transform:translate3d(34px,38px,0) scale(1.18)}}
+@keyframes solar-pulse{0%,100%{box-shadow:0 0 0 5px #ffb7191c}50%{box-shadow:0 0 0 12px #ffb7190b}}
+@keyframes solar-float{0%,100%{translate:0 0}50%{translate:0 -9px}}
+@keyframes solar-breathe{0%,100%{filter:drop-shadow(0 0 0 transparent)}50%{filter:drop-shadow(0 0 15px #ffbe2e33)}}
+@keyframes solar-faq{from{opacity:0;transform:translateY(-7px)}to{opacity:1;transform:translateY(0)}}
+@media(hover:hover) and (pointer:fine){.tilt-card:hover{transform:perspective(900px) translateY(-6px) rotateX(var(--tilt-x,0deg)) rotateY(var(--tilt-y,0deg))}}
+@media(max-width:860px){.hero-grid-overlay::before{width:300px;top:-110px;right:-100px}.interior-banner::before{width:350px;right:-185px}}
+@media(hover:none),(pointer:coarse){.service-card:hover,.value-card:hover,.process-card:hover,.gallery-tile:hover,.mini-contact:hover,.btn:hover{transform:none}.hero-photo-wrap:hover .hero-photo{transform:none}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto!important}.motion-progress{display:none!important}*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}html.solar-motion .solar-reveal{opacity:1!important;transform:none!important;filter:none!important}.floating-label,.sun-art,.graphic-sun{translate:none!important}}
